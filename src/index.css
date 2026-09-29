@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/dmserifdisplay/v15/-nFnOHM81r4j6g0Vj23_bLXz7zD0cj2hWp90GvI.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/dmsans/v15/rP2Hp2ywxg089UriOZc.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/dmsans/v15/rP2Cp2ywxg089UriAWM.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/dmsans/v15/rP2Ap2ywxg089Uri7Zc.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/jetbrainsmono/v24/tD8aoPOVGf2jH50N3Mw.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/jetbrainsmono/v24/tD8xaoPOVGf2jH50N5M.woff2') format('woff2');
+}
+
+@layer base {
+  :root {
+    /* Warm whitewash & laterite — light mode */
+    --background: 35 47% 96%;
+    --surface: 33 47% 90%;
+    --foreground: 222 35% 20%;
+    --muted: 252 3% 40%;
+    --accent: 16 74% 42%;
+    --accent-2: 181 51% 29%;
+    --border: 33 36% 82%;
+
+    /* shadcn compatibility */
+    --card: 35 47% 96%;
+    --card-foreground: 222 35% 20%;
+    --popover: 35 47% 96%;
+    --popover-foreground: 222 35% 20%;
+    --primary: 16 74% 42%;
+    --primary-foreground: 35 47% 96%;
+    --secondary: 33 47% 90%;
+    --secondary-foreground: 222 35% 20%;
+    --muted-foreground: 252 3% 40%;
+    --accent-foreground: 35 47% 96%;
+    --destructive: 0 74% 42%;
+    --destructive-foreground: 35 47% 96%;
+    --input: 33 36% 82%;
+    --ring: 181 51% 29%;
+    --radius: 0.75rem;
+
+    --chart-1: 16 74% 42%;
+    --chart-2: 181 51% 29%;
+    --chart-3: 43 74% 66%;
+    --chart-4: 27 87% 67%;
+    --chart-5: 222 35% 20%;
+  }
+
+  .dark {
+    /* Dark mode — deep indigo */
+    --background: 222 22% 11%;
+    --surface: 222 20% 16%;
+    --foreground: 33 47% 90%;
+    --muted: 225 10% 68%;
+    --accent: 14 74% 58%;
+    --accent-2: 184 42% 55%;
+    --border: 225 24% 22%;
+
+    --card: 222 22% 11%;
+    --card-foreground: 33 47% 90%;
+    --popover: 222 22% 11%;
+    --popover-foreground: 33 47% 90%;
+    --primary: 14 74% 58%;
+    --primary-foreground: 222 22% 11%;
+    --secondary: 222 20% 16%;
+    --secondary-foreground: 33 47% 90%;
+    --muted-foreground: 225 10% 68%;
+    --accent-foreground: 222 22% 11%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 33 47% 90%;
+    --input: 225 24% 22%;
+    --ring: 184 42% 55%;
+
+    --chart-1: 14 74% 58%;
+    --chart-2: 184 42% 55%;
+    --chart-3: 43 74% 66%;
+    --chart-4: 27 87% 67%;
+    --chart-5: 33 47% 90%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 1.4rem + 4.6vw, 5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.9rem, 1.2rem + 2.6vw, 3.25rem);
+  }
+
+  h3 {
+    font-size: clamp(1.3rem, 1.1rem + 1vw, 1.75rem);
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  ::selection {
+    background: hsl(var(--accent) / 0.25);
+  }
+
+  select {
+    color-scheme: light dark;
+  }
+
+  select option {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: hsl(var(--muted));
+  }
+
+  .container-px {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-px {
+      padding-inline: 2rem;
+    }
+  }
+
+  .section-py {
+    padding-block: clamp(4rem, 10vw, 10rem);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .max-prose {
+    max-width: 70ch;
+  }
+
+  .animated-link {
+    position: relative;
+    display: inline-block;
+  }
+
+  .animated-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 1px;
+    background: hsl(var(--accent));
+    transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .animated-link:hover::after,
+  .animated-link:focus-visible::after {
+    width: 100%;
+  }
+
+  .btn-press {
+    transition: transform 0.1s ease;
+  }
+
+  .btn-press:active {
+    transform: scale(0.96);
+  }
+
+  .arch-top {
+    border-top-left-radius: 999px;
+    border-top-right-radius: 999px;
+  }
+
+  .tile-bg {
+    background-image: var(--tile-pattern-url, none);
+    background-size: 64px 64px;
+    background-repeat: repeat;
+  }
+}
+
+@layer utilities {
+  .text-accent {
+    color: hsl(var(--accent));
+  }
+  .text-accent-2 {
+    color: hsl(var(--accent-2));
+  }
+  .bg-surface {
+    background-color: hsl(var(--surface));
+  }
+  .bg-accent {
+    background-color: hsl(var(--accent));
+  }
+  .bg-accent-2 {
+    background-color: hsl(var(--accent-2));
+  }
+  .border-accent {
+    border-color: hsl(var(--accent));
+  }
+  .border-accent-2 {
+    border-color: hsl(var(--accent-2));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
